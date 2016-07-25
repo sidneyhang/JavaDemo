@@ -11,6 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-Hello, ${info} .
+  <p>UserId: ${id}</p>
+  <p>Name: ${name}</p>
+  <p>age: ${age}</p>
 </body>
 </html>
