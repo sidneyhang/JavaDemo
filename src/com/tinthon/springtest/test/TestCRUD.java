@@ -1,6 +1,8 @@
 package com.tinthon.springtest.test;
 
 import com.tinthon.springtest.mapping.UserMapperI;
+import com.tinthon.springtest.model.Classes;
+import com.tinthon.springtest.model.Order;
 import com.tinthon.springtest.model.User;
 import com.tinthon.springtest.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
@@ -44,6 +46,27 @@ public class TestCRUD {
         User user = mapper.getById(3);
         sqlsession.close();
         return user;
+    }
+
+    public Order testGetOrder() {
+        SqlSession sqlsession = MyBatisUtil.getSqlSession(true);
+
+        String statement = "com.tinthon.springtest.mapping.orderMapper.getOrderById";
+        Order order = sqlsession.selectOne(statement, 1);
+
+        sqlsession.close();
+        return order;
+    }
+
+    public Classes testGetClass() {
+        SqlSession sqlsession = MyBatisUtil.getSqlSession(true);
+
+        String statement = "com.tinthon.springtest.mapping.orderMapper.getClass";
+
+        Classes cls = sqlsession.selectOne(statement, 1);
+
+        sqlsession.close();
+        return cls;
     }
 
 }

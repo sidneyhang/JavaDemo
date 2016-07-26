@@ -1,5 +1,7 @@
 package com.tinthon.springtest.controller;
 
+import com.tinthon.springtest.model.Classes;
+import com.tinthon.springtest.model.Order;
 import com.tinthon.springtest.model.User;
 import com.tinthon.springtest.test.TestCRUD;
 import org.apache.ibatis.session.SqlSession;
@@ -38,14 +40,19 @@ public class TestController {
 //
 
 
-        int userId = new TestCRUD().testUpdate();
+        //测试 getOrder
+//        Order order = new TestCRUD().testGetOrder();
+//
+//        modelview.addObject("id", order.getId());
+//        modelview.addObject("Order_No", order.getOrderNo());
+//        modelview.addObject("Price", order.getPrice());
 
-        User user = new TestCRUD().testGet();
-        modelview.addObject("id", user.getId());
-        modelview.addObject("name", user.getName());
-        modelview.addObject("age", user.getAge());
+        //测试 getClass
+        Classes cls = new TestCRUD().testGetClass();
 
-//        modelview.addObject("id", userId);
+        modelview.addObject("id", cls.getId());
+        modelview.addObject("name", cls.getName());
+        modelview.addObject("teacher_id", cls.getTeacher().getId());
         return modelview;
     }
 }

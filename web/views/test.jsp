@@ -12,7 +12,7 @@
 </head>
 <body>
   <p>UserId: ${id}</p>
-  <p>Name: ${name}</p>
-  <p>age: ${age}</p>
+  <p>name: ${name}</p>
+  <p>teacher_id: ${teacher_id}</p>
 </body>
 </html>
