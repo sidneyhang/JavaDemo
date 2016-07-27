@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tinthon.mapping.orderMapper">
+    
+    <select id="getOrderById" parameterType="int" resultMap="orderResultMap" resultType="com.tinthon.model.Order">
+        select * from orders where order_id=#{id}
+    </select>
+    
+    <resultMap id="orderResultMap" type="com.tinthon.model.Order">
+        <id property="id" column="order_id" />
+        <result property="orderNo" column="order_no" />
+        <result property="price" column="order_price" />
+    </resultMap>
+    
+
+</mapper>
