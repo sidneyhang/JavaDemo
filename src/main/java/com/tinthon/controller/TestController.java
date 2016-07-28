@@ -1,6 +1,7 @@
 package com.tinthon.controller;
 
 import com.tinthon.model.Classes;
+import com.tinthon.model.Student;
 import com.tinthon.test.TestCRUD;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by sidney on 2016/7/23.
@@ -42,12 +44,21 @@ public class TestController {
 //        modelview.addObject("Price", order.getPrice());
 
         //测试 getClass
-        Classes cls = new TestCRUD().testGetClass();
+        Classes cls = new TestCRUD().testGetStudent();
 
         modelview.addObject("id", cls.getId());
         modelview.addObject("name", cls.getName());
         modelview.addObject("teacher_id", cls.getTeacher().getId());
         modelview.addObject("teacher_name", cls.getTeacher().getName());
+
+        List<Student> students = cls.getStudents();
+
+        if (!students.isEmpty()){
+            for (int i=0; i < students.size(); i++) {
+                Student student = students.get(i);
+                System.out.println("ID: " + student.getId() + ", Name: " + student.getName());
+            }
+        }
 
 //        modelview.addObject("id", 1);
 //        modelview.addObject("name", "li");

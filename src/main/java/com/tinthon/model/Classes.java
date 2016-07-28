@@ -1,5 +1,7 @@
 package com.tinthon.model;
 
+import java.util.List;
+
 /**
  * Created by sidney on 2016/7/26.
  */
@@ -9,6 +11,7 @@ public class Classes {
     private String name;
 
     private Teacher teacher;
+    private List<Student> students;
 
     public int getId() {
         return id;
@@ -32,5 +35,13 @@ public class Classes {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 }

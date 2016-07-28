@@ -69,4 +69,15 @@ public class TestCRUD {
         return cls;
     }
 
+    public Classes testGetStudent() {
+        SqlSession sqlsession = MyBatisUtil.getSqlSession(true);
+
+        String statement = "com.tinthon.mapping.classMapper.getClassStudent";
+
+        Classes cls = sqlsession.selectOne(statement, 1);
+
+        sqlsession.close();
+        return cls;
+    }
+
 }

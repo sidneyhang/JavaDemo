@@ -16,5 +16,24 @@
         </association>
     </resultMap>
 
+    <select id="getClassStudent" parameterType="int" resultMap="studentResultMap" resultType="com.tinthon.model.Classes" >
+        select * from class c, teacher t,student s where c.teacher_id=t.t_id and c.C_id=s.class_id and  c.c_id=#{id}
+    </select>
+
+    <resultMap id="studentResultMap" type="com.tinthon.model.Classes">
+        <id property="id" column="c_id" />
+        <result property="name" column="c_name" />
+
+        <association property="teacher" javaType="com.tinthon.model.Teacher">
+            <id property="id" column="t_id" />
+            <result property="name" column="t_name" />
+        </association>
+
+        <collection property="students" ofType="com.tinthon.model.Student">
+            <id property="id" column="s_id" />
+            <result property="name" column="s_name" />
+        </collection>
+    </resultMap>
+
 
 </mapper>
